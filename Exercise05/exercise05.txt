@@ -1,1 +1,13 @@
 
+Exercise 5 - task parallelization of fibonacci
+
+fib() is recursive, so a normal parallel for cannot be used. Instead,
+each recursive call (fib(n-1) and fib(n-2)) is marked as a separate
+task using #pragma omp task, so different threads can work on
+different branches of the recursion at the same time.
+
+#pragma omp single makes sure the recursion only starts once, and
+#pragma omp taskwait makes sure both recursive results are ready
+before they are added together.
+
+Output: fib(10) = 55, matching the correct serial result.
