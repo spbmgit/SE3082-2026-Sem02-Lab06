@@ -1,1 +1,12 @@
+Exercise 4 - parallel for and collapse
 
+Part 1: pragma omp parallel for
+Only the outer loop (r = 1 to 5) is split across threads. Each thread then runs the full inner loop (k = 1 to 10) on its own. 
+With 2 threads: thread 0 got r = 1,2,3; thread 1 got r = 4,5 (30/20 split).
+
+Part 2: pragma omp parallel for with collapse
+Both loops are merged into one set of 50 iterations, which OpenMP splits evenly across threads instead of just the outer loop. 
+This gave a 25/25 split, cutting through the middle of r = 3 rather than along the outer loop's natural boundary.
+
+Conclusion: collapse gives OpenMP more iterations to divide (50
+vs 5), producing a finer, more balanced split of work.
