@@ -1,0 +1,6 @@
+Exercise 1 - pragma omp barrier
+
+The pragma omp barrier directive makes every thread in the parallel
+region wait at that point until all other threads have also reached
+the barrier. No thread is allowed to continue past the barrier until
+every thread has arrived there.
