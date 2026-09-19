@@ -1,0 +1,9 @@
+Threads   Area          Time (s)
+1         1.50926625    7.52
+2         1.50926625    3.96
+3         1.50926625    4.09
+4         1.50926625    3.96
+
+Results are identical across all thread counts, confirming correctness.
+Time decreased from 1 to 2 threads but did not improve further with
+3 or 4 threads, since the instance only has 2 vCPUs.
