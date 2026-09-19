@@ -1,1 +1,13 @@
+Exercise 3 - pragma omp master
 
+The pragma omp master directive specifies that only the master thread (thread 0) should execute the enclosed block of code. Every other thread in the team skips the block entirely.
+In this program, thread 0 consistently executed the master block firstand and printed "Inside Master" and "Exiting Master", then continued,straight on to print its own "Hi again" line. 
+all before thread 1 had even printed its first "thread #" line in some runs. This demonstrates that thread 1 was not held back waiting for thread 0's master block to complete.
+
+Sample output:
+thread # 0
+Inside Master # 0
+Exiting Master
+Hi again from thread # 0
+thread # 1
+Hi again from thread # 1
