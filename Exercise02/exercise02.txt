@@ -1,0 +1,4 @@
+Exercise 2 - pragma omp single
+
+The pragma omp single directive tells OpenMP that only one thread in the team should execute the enclosed block of code,whichever thread reaches it first. All other threads skip the block entirely and wait at an implicit barrier placed at the end of the single block, meaning no thread can continue past it until the single block has completely
+finished executing.
